@@ -80,6 +80,7 @@ h3{font-size:1.5rem}
 .guest b{display:block;font:500 1.4rem 'Cormorant Garamond',Georgia,serif;margin-top:2px;color:var(--gold2);overflow-wrap:anywhere;letter-spacing:.01em}
 .row{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
 #buka{animation:ring 2.6s ease-out infinite}
+#cover .row[data-anim]{opacity:1;transform:none;filter:none}
 @keyframes ring{0%{box-shadow:0 0 0 0 rgba(230,211,171,.55)}70%,100%{box-shadow:0 0 0 16px rgba(230,211,171,0)}}
 .scrollcue{display:none}
 
@@ -236,6 +237,7 @@ textarea{min-height:104px;resize:vertical}
 .no-anim [data-anim]{opacity:1!important;transform:none!important;filter:none!important;transition:none!important}
 .no-anim .parts i,.no-anim #buka{animation:none!important}
 .no-anim .slides img.on{transform:none}
+@media (min-width:431px) and (max-height:700px){.cover-body{padding:24px 20px}.bismillah{font-size:1.35rem}.cover .judul{margin:4px 0 12px}.arch{width:128px;height:158px;margin-bottom:12px}.cover h1{font-size:2.4rem}.guest{margin:14px auto 10px;padding:10px 14px}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.js [data-anim]{opacity:1;transform:none;filter:none}.js [data-anim=line]{width:44px}.slides img.on{transform:none}}
 </style>
 <script>document.documentElement.classList.add('js')</script>
