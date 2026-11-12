@@ -255,6 +255,15 @@ textarea{min-height:104px;resize:vertical}
     document.body.classList.remove('locked');
     return;
   }
+  /* Bentuk data dari server operator (pratinjau & undangan tayang) bisa berupa teks untuk "doa" dan "informasiKontak";
+     template ini memakai objek/daftar. Disamakan di sini; data-undangan.js bentuk lengkap tetap dipakai apa adanya. */
+  if (typeof D.doa === 'string') D.doa = D.doa.trim() ? { terjemah: D.doa.trim() } : {};
+  if (typeof D.informasiKontak === 'string') {
+    var ikTeks = D.informasiKontak.trim(), ikWa = ikTeks.match(/\+?(\d[\d\s-]{7,})\s*$/);
+    D.informasiKontak = ikTeks ? [{ nama: (ikWa ? ikTeks.slice(0, ikWa.index) : ikTeks).replace(/[:\s]+$/, '').trim() || ikTeks, peran: '', whatsapp: ikWa ? ikWa[1].replace(/\D/g, '') : '' }] : [];
+  } else if (D.informasiKontak && !Array.isArray(D.informasiKontak)) {
+    D.informasiKontak = [D.informasiKontak];
+  }
   var FB = window.FB || { aktif: false };
   var $ = function (s, r) { return (r || document).querySelector(s); };
   var e = function (s) {
@@ -304,7 +313,7 @@ textarea{min-height:104px;resize:vertical}
   var utama = function () { return ACARA[0] ? merge(ACARA[0], S.ac) : null; };
   function merge(a, o) { var r = {}; Object.keys(a).forEach(function (k) { r[k] = a[k]; }); Object.keys(o || {}).forEach(function (k) { if (o[k]) r[k] = o[k]; }); return r; }
   function sesi(i) { return i === 0 ? utama() : ACARA[i]; }
-  var judulAcara = function (a, i) { return a.judul || (ACARA.length > 1 ? 'Sesi ' + (i + 1) : 'Walimatul Khitan'); };
+  var judulAcara = function (a, i) { return a.judul || (i === 0 ? 'Khitan' : i === 1 ? 'Resepsi Khitan' : 'Sesi ' + (i + 1)); };
 
   /* Teks tetap model ini */
   var T_PEMBUKA = 'Dengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara tasyakuran khitan putra kami.';

@@ -159,7 +159,7 @@ function sesi(){
     Object.keys(m).forEach(function(k){var v=S.set[k];if(typeof v==='string'&&v.trim())a[0][m[k]]=v.trim()})}
   return a;
 }
-function ev(e,i){return [e.judul||(ACARA.length>1?'Sesi '+(i+1):'Walimatul Khitan'),tgl(e.tanggal),jam(e),[e.tempat,e.alamat].filter(Boolean).join(', ')].filter(Boolean).join('\n')}
+function ev(e,i){return [e.judul||(i===0?'Khitan':i===1?'Resepsi Khitan':'Sesi '+(i+1)),tgl(e.tanggal),jam(e),[e.tempat,e.alamat].filter(Boolean).join(', ')].filter(Boolean).join('\n')}
 function salin(t,m){if(navigator.clipboard&&window.isSecureContext)navigator.clipboard.writeText(t).then(function(){toast(m)});else{var a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();toast(m)}}
 
 var DEFAULT="Assalamu'alaikum Wr. Wb.\n\nKepada Yth.\n{nama}\n\nDengan memohon rahmat dan ridho Allah SWT, kami bermaksud mengundang Bapak/Ibu/Saudara/i untuk menghadiri acara tasyakuran khitan putra kami:\n\n*{anak}*\nPutra dari Bapak {ayah} & Ibu {ibu}\n\n{acara}\n\nBuka undangan digital kami di:\n{link}\n\nMerupakan kehormatan dan kebahagiaan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa untuk ananda.\n\nWassalamu'alaikum Wr. Wb.\nHormat kami,\nKeluarga Bapak {ayah} & Ibu {ibu}";

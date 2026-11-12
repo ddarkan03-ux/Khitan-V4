@@ -4,7 +4,7 @@ window.DATA = {
   "siteUrl": "",
   "firebase": {"apiKey": "AIzaSyBEA92p-xAjSyvDTWT09-zsuEDyjZg2dZw", "projectId": "undangan-saya"},
   "ucapanPublik": true,
-  "model": "Khitan Versi 1 - Ivory Sage Islami",
+  "model": "Khitan Versi 4 - Ivory Sage Islami",
   "pemesan": {"nama": "Bapak Ahmad Fauzi & Ibu Siti Aisyah", "whatsapp": "6285716300907"},
   "foto": {
     "sampul": "foto/sampul.webp",
@@ -23,7 +23,16 @@ window.DATA = {
   "zona": "WIB",
   "acara": [
     {
-      "judul": "Walimatul Khitan",
+      "judul": "Khitan",
+      "tanggal": "2027-03-13",
+      "jamMulai": "10:00",
+      "jamSelesai": "13:00",
+      "tempat": "Nama Tempat Acara",
+      "alamat": "Alamat lengkap tempat acara",
+      "maps": "https://maps.google.com/"
+    },
+    {
+      "judul": "Resepsi Khitan",
       "tanggal": "2027-03-13",
       "jamMulai": "10:00",
       "jamSelesai": "13:00",
